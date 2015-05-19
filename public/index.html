@@ -10,7 +10,7 @@
     <script src="js/app.js"></script>
     <script src="js/shoppingCartController.js"></script>
   </head>
-  <body ng-controller="ShoppingCartController as Ctrl">
+  <body ng-controller="ShoppingCartController as ctrl">
     <section class="container">
       <section class="col-md-12">
         <ul class ="nav nav-tabs">
@@ -33,7 +33,7 @@
             <a href="#">Men's Formalwear</a>
           </li>
           <li>
-            <span id="basket-header-total" class="badge">{{ctrl.basketTotal()| currency}}</span>
+            <span id="basket-header-total" class="badge">Basket Total : {{ctrl.basketTotal()| currency:"£"}}</span>
           </li>
         </ul>
       </section>
