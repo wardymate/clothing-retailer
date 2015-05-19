@@ -3,5 +3,4 @@ shopper.controller('ShoppingCartController', [function() {
 
   self.shoppingBasket = [];
 
-
 }]);
