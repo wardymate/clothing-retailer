@@ -3,4 +3,9 @@ describe('Shopping Cart', function() {
     browser.get('http://localhost:3000');
     expect(browser.getTitle()).toEqual('A Clothing Retailer');
   });
+
+  it('', function() {
+
+  });
+
 });
