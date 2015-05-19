@@ -3,4 +3,8 @@ shopper.controller('ShoppingCartController', [function() {
 
   self.shoppingBasket = [];
 
+  self.basketTotal = function() {
+    return 0;
+  };
+
 }]);

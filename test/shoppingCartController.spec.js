@@ -11,4 +11,8 @@ describe('ShoppingCartController', function() {
     expect(ctrl.shoppingBasket).toEqual([]);
   });
 
+  it('it initialises with a basket total of £0.00', function() {
+    expect(ctrl.basketTotal()).toEqual(0);
+  });
+
 });
