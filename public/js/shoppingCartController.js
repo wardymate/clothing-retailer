@@ -11,4 +11,8 @@ shopper.controller('ShoppingCartController', [function() {
     return 0;
   };
 
+  self.addItemToBasket = function(item) {
+    self.shoppingBasket.push(item);
+  };
+
 }]);
