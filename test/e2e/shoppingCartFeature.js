@@ -12,8 +12,10 @@ describe('Shopping Cart', function() {
     expect(element(by.id('basket-header-total')).getText()).toContain('£0.00');
   });
 
-  xit('can add an item to the shopping cart', function() {
-
+  it('can add an item to the shopping cart', function() {
+    element(by.id('suede-shoes-blue')).click();
+    expect(element(by.id('basket-header-total')).getText()).toContain('£42.00');
+    expect(element(by.id('shopping-basket')).getText()).toContain('Suede Shoes, Blue');
   });
 
 });
