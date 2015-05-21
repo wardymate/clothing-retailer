@@ -15,4 +15,8 @@ shopper.controller('ShoppingCartController', [function() {
     self.shoppingBasket.push(item);
   };
 
+  self.removeItemFromBasket = function(item) {
+    self.shoppingBasket.pop(item);
+  };
+
 }]);
