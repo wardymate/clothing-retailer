@@ -41,14 +41,14 @@
         <section class="col-sm-8">
           <ul class="list-group">
             <li ng-repeat="item in ctrl.products.items" class="list-group-item">
-              <a ng-click="ctrl.addItemToBasket(item)">{{item.Name}} : {{item.colour}}</p>
+              <a class="basket-item" ng-click="ctrl.addItemToBasket(item)">{{item.Name}} : {{item.colour}}</p>
             </li>
           </ul>
         </section>
         <section class="col-md-4">
           <div ng-show="ctrl.shoppingBasketVisible" class="ng-hide">
-            <h3 id="shopping-basket">Shopping Basket</h3>
-            <ul>
+            <h3>Shopping Basket</h3>
+            <ul id="shopping-basket">
               <li ng-repeat="basketItem in ctrl.shoppingBasket">
                 <p>{{basketItem.Name}} : {{basketItem.colour}}</p>
               </li>
