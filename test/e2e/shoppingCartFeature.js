@@ -12,10 +12,14 @@ describe('Shopping Cart', function() {
     expect(element(by.id('basket-header-total')).getText()).toContain('£0.00');
   });
 
-  it('can add an item to the shopping cart', function() {
+  it('can add an item to the shopping basket', function() {
     element(by.cssContainingText('.basket-item', 'Suede Shoes : Blue')).click();
     expect(element(by.id('basket-header-total')).getText()).toContain('£42.00');
     expect(element(by.id('shopping-basket')).getText()).toContain('Suede Shoes : Blue');
+  });
+
+  it('can add then remove an item from the shopping basket', function() {
+
   });
 
 });
