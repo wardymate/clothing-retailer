@@ -31,6 +31,12 @@ describe('Shopping Cart', function() {
       element(by.id('five-pound-voucher')).click();
       expect(element(by.id('basket-total')).getText()).toContain('£37.00');
     });
+    it('can only apply one £5 off voucher once an item is added to the basket', function() {
+      element(by.cssContainingText('.shop-item', 'Suede Shoes : Blue')).click();
+      element(by.id('five-pound-voucher')).click();
+      element(by.id('five-pound-voucher')).click();
+      expect(element(by.id('basket-total')).getText()).toContain('£37.00');
+    });
 
   });
 

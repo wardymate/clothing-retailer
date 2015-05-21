@@ -53,7 +53,10 @@ shopper.controller('ShoppingCartController', [function() {
   };
 
   self.applyFivePoundDiscount = function() {
-    self.basketTotal -= 5.00;
+    if (self.fivePoundDiscount) {
+      self.basketTotal -= 5.00;
+      self.fivePoundDiscount = false;
+    }
   };
 
 }]);
