@@ -6,8 +6,7 @@ describe('ShoppingCartController', function() {
 
   beforeEach(inject(function($controller) {
     ctrl = $controller('ShoppingCartController');
-    ctrl.newItem = {'Name' : 'Suede Shoes, Blue', 'Category' : "Women’s Footwear", 'price' : '42.00', 'quantity' :
-'4'};
+    ctrl.newItem = {'Name' : 'Suede Shoes, Blue', 'Category' : "Women’s Footwear", 'price' : '42.00', 'quantity' : '4'};
   }));
 
   it('intialises with an empty basket', function() {
@@ -18,16 +17,35 @@ describe('ShoppingCartController', function() {
     expect(ctrl.basketTotal()).toEqual(0);
   });
 
+  it('initialises with a hidden shopping basket', function() {
+    expect(ctrl.shoppingBasketVisible).toEqual(false);
+  });
+
   it('can add an item to the basket', function() {
     ctrl.addItemToBasket(ctrl.newItem);
-    expect(ctrl.shoppingBasket).toEqual([{'Name' : 'Suede Shoes, Blue', 'Category' : "Women’s Footwear", 'price' : '42.00', 'quantity' :
-'4'}]);
+    expect(ctrl.shoppingBasket).toEqual([{'Name' : 'Suede Shoes, Blue', 'Category' : "Women’s Footwear", 'price' : '42.00', 'quantity' : '4'}]);
   });
 
   it('can remove an item from the basket', function() {
     ctrl.addItemToBasket(ctrl.newItem);
     ctrl.removeItemFromBasket(ctrl.newItem);
     expect(ctrl.shoppingBasket).toEqual([]);
+  });
+
+  it('changes the shopping basket to visible when an item is added', function() {
+    ctrl.addItemToBasket(ctrl.newItem);
+    expect(ctrl.shoppingBasketVisible).toEqual(true);
+  });
+
+  it('changes the shopping basket to hidden when an item is added and then removed', function() {
+    ctrl.addItemToBasket(ctrl.newItem);
+    ctrl.removeItemFromBasket(ctrl.newItem);
+    expect(ctrl.shoppingBasketVisible).toEqual(false);
+  });
+
+  it('Displays the total of the goods in the basket', function() {
+    ctrl.addItemToBasket(ctrl.newItem);
+    expect(ctrl.basketTotal()).toEqual(42.00);
   });
 
 

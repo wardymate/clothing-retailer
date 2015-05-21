@@ -13,9 +13,9 @@ describe('Shopping Cart', function() {
   });
 
   it('can add an item to the shopping cart', function() {
-    element(by.id('suede-shoes-blue')).click();
+    element(by.cssContainingText('.list-group', 'Suede Shoes : Blue')).click();
     expect(element(by.id('basket-header-total')).getText()).toContain('£42.00');
-    expect(element(by.id('shopping-basket')).getText()).toContain('Suede Shoes, Blue');
+    expect(element(by.id('shopping-basket')).getText()).toContain('Suede Shoes : Blue');
   });
 
 });

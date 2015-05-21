@@ -1,22 +1,46 @@
 shopper.controller('ShoppingCartController', [function() {
 
-  var goods = [{'Name' : 'Suede Shoes, Blue', 'Category' : "Women’s Footwear", 'price' : '42.00', 'quantity' :
-'4'}];
-
   var self = this;
 
+  self.products = {
+    'items' : [
+      {'Name' : 'Almond Toe Court Shoes', 'colour' : 'Patent Black', 'Category' : "Women’s Footwear", 'price' : '99.00', 'quantity' : '5'},
+      {'Name' : 'Suede Shoes', 'colour' : 'Blue', 'Category' : "Women’s Footwear", 'price' : '42.00', 'quantity' : '4'},
+      {'Name' : 'Leather Driver Saddle Loafers', 'colour' : 'Tan', 'Category' : "Men’s Footwear", 'price' : '42.00', 'quantity' : '4'},
+      {'Name' : 'Flip Flops', 'colour' : 'Red', 'Category' : "Men’s Footwear", 'price' : '19.00', 'quantity' : '6'},
+      {'Name' : 'Flip Flops', 'colour' : 'Blue', 'Category' : "Men’s Footwear", 'price' : '19.00', 'quantity' : '0'},
+      {'Name' : 'Gold Button Cardigan', 'colour' : 'Black', 'Category' : "Women’s Casualwear", 'price' : '167.00', 'quantity' : '6'},
+      {'Name' : 'Cotton Shorts', 'colour' : 'Medium Red', 'Category' : "Women’s Casualwear", 'price' : '30.00', 'quantity' : '5'},
+      {'Name' : 'Fine Stripe Short Sleeve Shirt', 'colour' : 'Grey', 'Category' : "Men’s Casualwear", 'price' : '49.99', 'quantity' : '9'},
+      {'Name' : 'Fine Stripe Short Sleeve Shirt', 'colour' : 'Green', 'Category' : "Men’s Casualwear", 'price' : '39.99', 'quantity' : '3'},
+      {'Name' : 'Sharkskin Waistcoat', 'colour' : 'Charcoal', 'Category' : "Men’s Formalwear", 'price' : '42.00', 'quantity' : '4'},
+      {'Name' : 'Lightweight Patch Pocket Blazer', 'colour' : 'Deer', 'Category' : "Men’s Formalwear", 'price' : '175.50', 'quantity' : '1'},
+      {'Name' : 'Bird Print Dress', 'colour' : 'Black', 'Category' : "Women’s Formalwear", 'price' : '270.00', 'quantity' : '10 '},
+      {'Name' : 'Mid Twist Cut-Out Dress', 'colour' : 'Pink', 'Category' : "Women’s Formalwear", 'price' : '540.00', 'quantity' : '5'}
+    ]
+  };
+
   self.shoppingBasket = [];
+  self.shoppingBasketVisible = false;
 
   self.basketTotal = function() {
-    return 0;
+    return self.shoppingBasket.map(function(item) {
+      return parseFloat(item.price);
+    }).reduce(function(previousValue, currentValue) {
+      return previousValue + currentValue;
+    },0);
   };
 
   self.addItemToBasket = function(item) {
     self.shoppingBasket.push(item);
+    self.shoppingBasketVisible = true;
   };
 
   self.removeItemFromBasket = function(item) {
     self.shoppingBasket.pop(item);
+    if (self.shoppingBasket.length===0) {
+      self.shoppingBasketVisible = false;
+    }
   };
 
 }]);
