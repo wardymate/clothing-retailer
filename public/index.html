@@ -41,7 +41,7 @@
         <section class="col-sm-8">
           <ul class="list-group">
             <li ng-repeat="item in ctrl.products.items" class="list-group-item">
-              <a class="basket-item" ng-click="ctrl.addItemToBasket(item)">{{item.Name}} : {{item.colour}}</p>
+              <a class="shop-item" ng-click="ctrl.addItemToBasket(item)">{{item.Name}} : {{item.colour}}</p>
             </li>
           </ul>
         </section>
@@ -50,7 +50,7 @@
             <h3>Shopping Basket</h3>
             <ul id="shopping-basket">
               <li ng-repeat="basketItem in ctrl.shoppingBasket">
-                <p>{{basketItem.Name}} : {{basketItem.colour}}</p>
+                <a class="basket-item">{{basketItem.Name}} : {{basketItem.colour}}</a><a ng-click="ctrl.removeItemFromBasket(basketItem)"class="remove-basket-item pull-right">remove</a>
               </li>
             </ul>
            </div>

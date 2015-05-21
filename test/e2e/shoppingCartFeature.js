@@ -13,13 +13,16 @@ describe('Shopping Cart', function() {
   });
 
   it('can add an item to the shopping basket', function() {
-    element(by.cssContainingText('.basket-item', 'Suede Shoes : Blue')).click();
+    element(by.cssContainingText('.shop-item', 'Suede Shoes : Blue')).click();
     expect(element(by.id('basket-header-total')).getText()).toContain('£42.00');
     expect(element(by.id('shopping-basket')).getText()).toContain('Suede Shoes : Blue');
   });
 
   it('can add then remove an item from the shopping basket', function() {
-
+    element(by.cssContainingText('.shop-item', 'Suede Shoes : Blue')).click();
+    element(by.cssContainingText('.remove-basket-item', 'remove')).click();
+    expect(element(by.id('shopping-basket')).isDisplayed()).toBe(false);
+    expect(element(by.id('basket-header-total')).getText()).toContain('£0.00');
   });
 
 });
