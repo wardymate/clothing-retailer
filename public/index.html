@@ -33,7 +33,7 @@
             <a href="#">Men's Formalwear</a>
           </li>
           <li>
-            <a href="#"><span id="basket-header-total" class="badge">Basket Total : {{ctrl.basketTotal()| currency:"£"}}</span></a>
+            <a href="#"><span id="basket-header-total" class="badge">Basket Total : {{ctrl.basketTotal| currency:"£"}}</span></a>
           </li>
         </ul>
       </section>
@@ -53,8 +53,10 @@
                 <a class="basket-item">{{basketItem.Name}} : {{basketItem.colour}}</a><a ng-click="ctrl.removeItemFromBasket(basketItem )"class="remove-basket-item pull-right">remove</a>
               </li>
             </ul>
-            <div class="pull-right">
-              Total : {{ctrl.basketTotal()| currency:"£"}}
+            <a id="five-pound-voucher" ng-click="ctrl.applyFivePoundDiscount()">£5 pounds off
+            </a>
+            <div id="basket-total" class="pull-right">
+              Total : {{ctrl.basketTotal| currency:"£"}}
             </div>
            </div>
         </section>

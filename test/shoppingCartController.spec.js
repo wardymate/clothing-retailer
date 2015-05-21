@@ -14,7 +14,7 @@ describe('ShoppingCartController', function() {
   });
 
   it('it initialises with a basket total of £0.00', function() {
-    expect(ctrl.basketTotal()).toEqual(0);
+    expect(ctrl.basketTotal).toEqual(0);
   });
 
   it('initialises with a hidden shopping basket', function() {
@@ -45,8 +45,18 @@ describe('ShoppingCartController', function() {
 
   it('Displays the total of the goods in the basket', function() {
     ctrl.addItemToBasket(ctrl.newItem);
-    expect(ctrl.basketTotal()).toEqual(42.00);
+    expect(ctrl.basketTotal).toEqual(42.00);
   });
 
+  it('can apply a discount of £5 once an item has been added to the basket', function() {
+    ctrl.addItemToBasket(ctrl.newItem);
+    expect(ctrl.fivePoundDiscount).toEqual(true);
+  });
+
+  it('reduces the total once the £5 discount has been applied', function() {
+    ctrl.addItemToBasket(ctrl.newItem);
+    ctrl.applyFivePoundDiscount();
+    expect(ctrl.basketTotal).toEqual(37.00);
+  });
 
 });

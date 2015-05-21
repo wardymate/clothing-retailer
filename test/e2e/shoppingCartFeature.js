@@ -25,4 +25,13 @@ describe('Shopping Cart', function() {
     expect(element(by.id('basket-header-total')).getText()).toContain('£0.00');
   });
 
+  describe('using vouchers', function() {
+    it('can apply a £5 off voucher once an item is added to the basket', function() {
+      element(by.cssContainingText('.shop-item', 'Suede Shoes : Blue')).click();
+      element(by.id('five-pound-voucher')).click();
+      expect(element(by.id('basket-total')).getText()).toContain('£37.00');
+    });
+
+  });
+
 });

@@ -22,9 +22,15 @@ shopper.controller('ShoppingCartController', [function() {
 
   self.shoppingBasket = [];
   self.shoppingBasketVisible = false;
+  self.fivePoundDiscount = false;
+  self.basketTotal = 0;
 
-  self.basketTotal = function() {
-    return self.shoppingBasket.map(function(item) {
+  discountsAvailable = function() {
+    self.fivePoundDiscount = true;
+  };
+
+  setbasketTotal = function() {
+    self.basketTotal = self.shoppingBasket.map(function(item) {
       return parseFloat(item.price);
     }).reduce(function(previousValue, currentValue) {
       return previousValue + currentValue;
@@ -34,6 +40,8 @@ shopper.controller('ShoppingCartController', [function() {
   self.addItemToBasket = function(item) {
     self.shoppingBasket.push(item);
     self.shoppingBasketVisible = true;
+    discountsAvailable();
+    setbasketTotal();
   };
 
   self.removeItemFromBasket = function(item) {
@@ -41,6 +49,11 @@ shopper.controller('ShoppingCartController', [function() {
     if (self.shoppingBasket.length===0) {
       self.shoppingBasketVisible = false;
     }
+    setbasketTotal();
+  };
+
+  self.applyFivePoundDiscount = function() {
+    self.basketTotal -= 5.00;
   };
 
 }]);
