@@ -32,12 +32,16 @@ shopper.controller('ShoppingCartController', [function() {
     self.tenPoundDiscount = true;
   };
 
-  setbasketTotal = function() {
-    self.basketTotal = self.shoppingBasket.map(function(item) {
+  self.subTotal = function() {
+    return self.shoppingBasket.map(function(item) {
       return parseFloat(item.price);
     }).reduce(function(previousValue, currentValue) {
       return previousValue + currentValue;
     },0);
+  };
+
+  setbasketTotal = function() {
+    self.basketTotal = self.subTotal();
   };
 
   self.addItemToBasket = function(item) {
