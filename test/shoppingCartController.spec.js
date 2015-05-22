@@ -124,6 +124,14 @@ describe('ShoppingCartController', function() {
     expect(ctrl.errorMessage).toEqual('£15 discount only available with orders greater than £75 and at least one item of footwear.');
   });
 
+  it('only applies the £15 voucer once', function() {
+    ctrl.addItemToBasket(ctrl.newItem);
+    ctrl.addItemToBasket(ctrl.newItem1);
+    ctrl.applyFifteenPoundDiscount();
+    ctrl.applyFifteenPoundDiscount();
+    expect(ctrl.basketTotal).toEqual(126.00);
+  });
+
 
 
 });

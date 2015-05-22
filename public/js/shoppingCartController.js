@@ -25,12 +25,14 @@ shopper.controller('ShoppingCartController', [function() {
   self.shoppingBasketVisible = false;
   self.fivePoundDiscount = false;
   self.tenPoundDiscount = false;
+  self.fifteenPoundDiscount = false;
   self.errorMessage = false;
 
 
   discountsAvailable = function() {
     self.fivePoundDiscount = true;
     self.tenPoundDiscount = true;
+    self.fifteenPoundDiscount = true;
   };
 
   self.subTotal = function() {
@@ -89,9 +91,11 @@ shopper.controller('ShoppingCartController', [function() {
   self.applyFifteenPoundDiscount = function() {
     if (self.basketTotal<75.00 || self.basketNoShoes()){
       self.errorMessage = '£15 discount only available with orders greater than £75 and at least one item of footwear.';
-    } else {
+    } else if (self.fifteenPoundDiscount){
       self.basketTotal -= 15.00;
+      self.fifteenPoundDiscount = false;
     }
+
   };
 
 }]);
