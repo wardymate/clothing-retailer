@@ -78,6 +78,15 @@ describe('ShoppingCartController', function() {
     expect(ctrl.basketTotal).toEqual(89.00);
   });
 
+  it('only applies the £10 voucer once', function() {
+    ctrl.addItemToBasket(ctrl.newItem1);
+    ctrl.applyTenPoundDiscount();
+    ctrl.applyTenPoundDiscount();
+    expect(ctrl.basketTotal).toEqual(89.00);
+  });
+
+
+
 
 
 });

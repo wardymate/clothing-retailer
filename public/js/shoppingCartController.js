@@ -62,7 +62,10 @@ shopper.controller('ShoppingCartController', [function() {
   };
 
   self.applyTenPoundDiscount = function() {
-    self.basketTotal -= 10.00;
+    if (self.tenPoundDiscount) {
+      self.basketTotal -= 10.00;
+      self.tenPoundDiscount = false;
+    }
   };
 
 }]);

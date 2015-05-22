@@ -38,6 +38,7 @@ describe('Shopping Cart', function() {
       element(by.id('five-pound-voucher')).click();
       expect(element(by.id('basket-total')).getText()).toContain('£37.00');
     });
+
     it('can apply a £10 off voucher when the basket subtotal is more than £50', function() {
       element(by.cssContainingText('.shop-item', 'Almond Toe Court Shoes : Patent Black')).click();
       element(by.id('ten-pound-voucher')).click();
