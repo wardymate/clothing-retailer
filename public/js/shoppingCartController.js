@@ -28,7 +28,6 @@ shopper.controller('ShoppingCartController', [function() {
   self.fifteenPoundDiscount = false;
   self.errorMessage = false;
 
-
   discountsAvailable = function() {
     self.fivePoundDiscount = true;
     self.tenPoundDiscount = true;
@@ -47,10 +46,14 @@ shopper.controller('ShoppingCartController', [function() {
     self.basketTotal = self.subTotal();
   };
 
+  itemAvailable = function(item) {
+    return (parseInt(item.quantity) > 0);
+  };
+
   self.basketNoShoes = function() {
     if (self.shoppingBasket.map(function(item) {
-        return (item.Category.toLowerCase().indexOf('footwear') > -1);
-       }).indexOf(true) > -1) {
+      return (item.Category.toLowerCase().indexOf('footwear') > -1);
+      }).indexOf(true) > -1) {
       return false;}
     else {
       return true;
@@ -58,10 +61,14 @@ shopper.controller('ShoppingCartController', [function() {
   };
 
   self.addItemToBasket = function(item) {
-    self.shoppingBasket.push(item);
-    self.shoppingBasketVisible = true;
-    discountsAvailable();
-    setbasketTotal();
+    if (itemAvailable(item)) {
+      self.shoppingBasket.push(item);
+      self.shoppingBasketVisible = true;
+      discountsAvailable();
+      setbasketTotal();
+    } else {
+      self.errorMessage = 'Sorry that item is currently out of stock.';
+    }
   };
 
   self.removeItemFromBasket = function(item) {

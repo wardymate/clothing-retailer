@@ -3,13 +3,12 @@ describe('ShoppingCartController', function() {
 
   var ctrl;
 
-
   beforeEach(inject(function($controller) {
     ctrl = $controller('ShoppingCartController');
     ctrl.newItem = {'Name' : 'Suede Shoes', 'colour' : 'Blue', 'Category' : "Women’s Footwear", 'price' : '42.00', 'quantity' : '4'};
     ctrl.newItem1 = {'Name' : 'Almond Toe Court Shoes', 'colour' : 'Patent Black', 'Category' : "Women’s Footwear", 'price' : '99.00', 'quantity' : '5'};
     ctrl.newItem2 = {'Name' : 'Lightweight Patch Pocket Blazer', 'colour' : 'Deer', 'Category' : "Men’s Formalwear", 'price' : '175.50', 'quantity' : '1'};
-
+    ctrl.newItem3 = {'Name' : 'Flip Flops', 'colour' : 'Blue', 'Category' : "Men’s Footwear", 'price' : '19.00', 'quantity' : '0'};
   }));
 
   it('intialises with an empty basket', function() {
@@ -132,6 +131,10 @@ describe('ShoppingCartController', function() {
     expect(ctrl.basketTotal).toEqual(126.00);
   });
 
+  it('produces an error when an out of stock item is selected', function() {
+    ctrl.addItemToBasket(ctrl.newItem3);
+    expect(ctrl.errorMessage).toEqual('Sorry that item is currently out of stock.');
+  });
 
 
 });

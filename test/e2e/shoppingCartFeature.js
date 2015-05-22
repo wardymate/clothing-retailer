@@ -57,9 +57,13 @@ describe('Shopping Cart', function() {
       element(by.id('fifteen-pound-voucher')).click();
       expect(element(by.id('basket-total')).getText()).toContain('£194.00');
     });
+  });
 
-
-
+  describe('out of stock items', function() {
+    it('can not add an out of stock item to the basket', function() {
+      element(by.cssContainingText('.shop-item', 'Flip Flops : Blue')).click();
+      expect(element(by.id('error-message')).getText()).toContain('Sorry that item is currently out of stock.');
+    });
   });
 
 });
