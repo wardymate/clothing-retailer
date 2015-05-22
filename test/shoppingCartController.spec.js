@@ -97,6 +97,11 @@ describe('ShoppingCartController', function() {
     expect(ctrl.errorMessage).toEqual(false);
   });
 
+  it('displays the sub total before discounts are applied', function() {
+    ctrl.addItemToBasket(ctrl.newItem);
+    ctrl.addItemToBasket(ctrl.newItem1);
+    expect(ctrl.subTotal()).toEqual(141.00);
+  });
 
 
 

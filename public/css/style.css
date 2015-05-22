@@ -1,3 +1,6 @@
+h3 {
+  text-align: center;
+}
 #five-pound-voucher {
   width: 100%;
   text-align: center;
@@ -7,4 +10,18 @@
   width: 100%;
   text-align: center;
   color: red;
+}
+
+#sub-total {
+  padding-top: 10px;
+}
+
+#shopping-basket {
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+.basket-item, .remove-basket-item, .basket-price {
+  display: inline-block;
+  padding: 2px;
 }
