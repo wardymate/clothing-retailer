@@ -27,6 +27,7 @@ shopper.controller('ShoppingCartController', [function() {
   self.tenPoundDiscount = false;
   self.errorMessage = false;
 
+
   discountsAvailable = function() {
     self.fivePoundDiscount = true;
     self.tenPoundDiscount = true;
@@ -42,6 +43,16 @@ shopper.controller('ShoppingCartController', [function() {
 
   setbasketTotal = function() {
     self.basketTotal = self.subTotal();
+  };
+
+  self.basketNoShoes = function() {
+    if (self.shoppingBasket.map(function(item) {
+        return (item.Category.toLowerCase().indexOf('footwear') > -1);
+       }).indexOf(true) > -1) {
+      return false;}
+    else {
+      return true;
+    }
   };
 
   self.addItemToBasket = function(item) {
@@ -72,6 +83,14 @@ shopper.controller('ShoppingCartController', [function() {
     } else if (self.tenPoundDiscount) {
       self.basketTotal -= 10.00;
       self.tenPoundDiscount = false;
+    }
+  };
+
+  self.applyFifteenPoundDiscount = function() {
+    if (self.basketTotal<75.00 || self.basketNoShoes()){
+      self.errorMessage = '£15 discount only available with orders greater than £75 and at least one item of footwear.';
+    } else {
+      self.basketTotal -= 15.00;
     }
   };
 

@@ -51,6 +51,13 @@ describe('Shopping Cart', function() {
       expect(element(by.id('error-message')).getText()).toContain('£10 discount only available with orders greater than £50.');
     });
 
+    it('can apply a £15 voucher when basket includes 1 item of footwear and total is more then £75', function() {
+      element(by.cssContainingText('.shop-item', 'Suede Shoes : Blue')).click();
+      element(by.cssContainingText('.shop-item', 'Gold Button Cardigan : Black')).click();
+      element(by.id('fifteen-pound-voucher')).click();
+      expect(element(by.id('basket-total')).getText()).toContain('£194.00');
+    });
+
 
 
   });

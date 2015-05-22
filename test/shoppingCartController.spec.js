@@ -8,6 +8,8 @@ describe('ShoppingCartController', function() {
     ctrl = $controller('ShoppingCartController');
     ctrl.newItem = {'Name' : 'Suede Shoes', 'colour' : 'Blue', 'Category' : "Women’s Footwear", 'price' : '42.00', 'quantity' : '4'};
     ctrl.newItem1 = {'Name' : 'Almond Toe Court Shoes', 'colour' : 'Patent Black', 'Category' : "Women’s Footwear", 'price' : '99.00', 'quantity' : '5'};
+    ctrl.newItem2 = {'Name' : 'Lightweight Patch Pocket Blazer', 'colour' : 'Deer', 'Category' : "Men’s Formalwear", 'price' : '175.50', 'quantity' : '1'};
+
   }));
 
   it('intialises with an empty basket', function() {
@@ -103,6 +105,24 @@ describe('ShoppingCartController', function() {
     expect(ctrl.subTotal()).toEqual(141.00);
   });
 
+  it('can apply a £15 discount', function() {
+    ctrl.addItemToBasket(ctrl.newItem);
+    ctrl.addItemToBasket(ctrl.newItem1);
+    ctrl.applyFifteenPoundDiscount();
+    expect(ctrl.basketTotal).toEqual(126);
+  });
+
+  it('produces an error if you try and apply the £15 discount incorrectly with a basket total lss than £75', function() {
+    ctrl.addItemToBasket(ctrl.newItem);
+    ctrl.applyFifteenPoundDiscount();
+    expect(ctrl.errorMessage).toEqual('£15 discount only available with orders greater than £75 and at least one item of footwear.');
+  });
+
+  it('produces an error if you try and apply the £15 discount incorrectly with a basket contatining no footwear', function() {
+    ctrl.addItemToBasket(ctrl.newItem2);
+    ctrl.applyFifteenPoundDiscount();
+    expect(ctrl.errorMessage).toEqual('£15 discount only available with orders greater than £75 and at least one item of footwear.');
+  });
 
 
 
