@@ -67,7 +67,7 @@ describe('ShoppingCartController', function() {
     expect(ctrl.basketTotal).toEqual(37.00);
   });
 
-  it('can a apply a discount of £10 once an item has been added to the basket', function() {
+  it('can apply a discount of £10 once an item has been added to the basket', function() {
     ctrl.addItemToBasket(ctrl.newItem);
     expect(ctrl.tenPoundDiscount).toEqual(true);
   });
@@ -83,6 +83,18 @@ describe('ShoppingCartController', function() {
     ctrl.applyTenPoundDiscount();
     ctrl.applyTenPoundDiscount();
     expect(ctrl.basketTotal).toEqual(89.00);
+  });
+
+  it('produces an error if you try and apply the £10 discount incorrectly', function() {
+    ctrl.addItemToBasket(ctrl.newItem);
+    ctrl.applyTenPoundDiscount();
+    expect(ctrl.errorMessage).toEqual('£10 discount only available with orders greater than £50.');
+  });
+
+  it('does not produce an error message if the £10 discount is valid', function() {
+    ctrl.addItemToBasket(ctrl.newItem1);
+    ctrl.applyTenPoundDiscount();
+    expect(ctrl.errorMessage).toEqual(false);
   });
 
 

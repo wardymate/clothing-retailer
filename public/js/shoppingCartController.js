@@ -25,6 +25,7 @@ shopper.controller('ShoppingCartController', [function() {
   self.shoppingBasketVisible = false;
   self.fivePoundDiscount = false;
   self.tenPoundDiscount = false;
+  self.errorMessage = false;
 
   discountsAvailable = function() {
     self.fivePoundDiscount = true;
@@ -62,7 +63,9 @@ shopper.controller('ShoppingCartController', [function() {
   };
 
   self.applyTenPoundDiscount = function() {
-    if (self.tenPoundDiscount) {
+    if (self.basketTotal<50.00){
+      self.errorMessage = '£10 discount only available with orders greater than £50.';
+    } else if (self.tenPoundDiscount) {
       self.basketTotal -= 10.00;
       self.tenPoundDiscount = false;
     }

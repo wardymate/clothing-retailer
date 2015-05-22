@@ -22,6 +22,9 @@
         </ul>
       </section>
       <div class="row">
+        <section class="col-sm-8" id="error-message" ng-show="ctrl.errorMessage" class="ng-hide">
+        <p>{{ctrl.errorMessage}}</p>
+        </section>
         <section class="col-sm-8">
           <ul>
             <li ng-repeat="item in ctrl.products.items" class="list-group-item">

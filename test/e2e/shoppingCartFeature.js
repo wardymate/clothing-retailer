@@ -45,6 +45,14 @@ describe('Shopping Cart', function() {
       expect(element(by.id('basket-total')).getText()).toContain('£89.00');
     });
 
+    it('displays an error message if £10 voucher is selected on a spend less than £50', function() {
+      element(by.cssContainingText('.shop-item', 'Suede Shoes : Blue')).click();
+      element(by.id('ten-pound-voucher')).click();
+      expect(element(by.id('error-message')).getText()).toContain('£10 discount only available with orders greater than £50.');
+    });
+
+
+
   });
 
 });
