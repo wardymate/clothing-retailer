@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>A Clothing Retailer</title>
+    <link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -14,32 +16,14 @@
     <section class="container">
       <section class="col-md-12">
         <ul class ="nav nav-tabs">
-          <li>
-            <a href="#">Women's Footwear</a>
-          </li>
-          <li>
-            <a href="#">Men's Footwear</a>
-          </li>
-          <li>
-            <a href="#">Women's Casualwear</a>
-          </li>
-          <li>
-            <a href="#">Men's Casualwear</a>
-          </li>
-          <li>
-            <a href="#">Women's Formalwear</a>
-          </li>
-          <li>
-            <a href="#">Men's Formalwear</a>
-          </li>
-          <li>
+          <li class="pull-right">
             <a href="#"><span id="basket-header-total" class="badge">Basket Total : {{ctrl.basketTotal| currency:"£"}}</span></a>
           </li>
         </ul>
       </section>
       <div class="row">
         <section class="col-sm-8">
-          <ul class="list-group">
+          <ul>
             <li ng-repeat="item in ctrl.products.items" class="list-group-item">
               <a class="shop-item" ng-click="ctrl.addItemToBasket(item)">{{item.Name}} : {{item.colour}}</p>
             </li>
@@ -47,14 +31,22 @@
         </section>
         <section class="col-md-4">
           <div ng-show="ctrl.shoppingBasketVisible" class="ng-hide">
-            <h3>Shopping Basket</h3>
+            <h3 class="center-block">Shopping Basket</h3>
             <ul id="shopping-basket">
               <li ng-repeat="basketItem in ctrl.shoppingBasket">
-                <a class="basket-item">{{basketItem.Name}} : {{basketItem.colour}}</a><a ng-click="ctrl.removeItemFromBasket(basketItem )"class="remove-basket-item pull-right">remove</a>
+                <a class="basket-item">{{basketItem.Name}} : {{basketItem.colour}}</a><p class="pull-right">{{basketItem.price | currency:"£"}}</p><br><a ng-click="ctrl.removeItemFromBasket(basketItem )"class="remove-basket-item pull-right">remove</a>
               </li>
             </ul>
-            <a id="five-pound-voucher" ng-click="ctrl.applyFivePoundDiscount()">£5 pounds off
-            </a>
+            <ul>
+              <li>
+                <a id="five-pound-voucher" ng-click="ctrl.applyFivePoundDiscount()">£5 pounds off
+                </a>
+              </li>
+              <li>
+                <a id="ten-pound-voucher">£5 pounds off
+                </a>
+              </li>
+            <ul>
             <div id="basket-total" class="pull-right">
               Total : {{ctrl.basketTotal| currency:"£"}}
             </div>

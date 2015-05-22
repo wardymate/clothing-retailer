@@ -21,12 +21,14 @@ shopper.controller('ShoppingCartController', [function() {
   };
 
   self.shoppingBasket = [];
+  self.basketTotal = 0;
   self.shoppingBasketVisible = false;
   self.fivePoundDiscount = false;
-  self.basketTotal = 0;
+  self.tenPoundDiscount = false;
 
   discountsAvailable = function() {
     self.fivePoundDiscount = true;
+    self.tenPoundDiscount = true;
   };
 
   setbasketTotal = function() {
@@ -57,6 +59,10 @@ shopper.controller('ShoppingCartController', [function() {
       self.basketTotal -= 5.00;
       self.fivePoundDiscount = false;
     }
+  };
+
+  self.applyTenPoundDiscount = function() {
+    self.basketTotal -= 10.00;
   };
 
 }]);

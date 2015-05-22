@@ -6,7 +6,8 @@ describe('ShoppingCartController', function() {
 
   beforeEach(inject(function($controller) {
     ctrl = $controller('ShoppingCartController');
-    ctrl.newItem = {'Name' : 'Suede Shoes, Blue', 'Category' : "Women’s Footwear", 'price' : '42.00', 'quantity' : '4'};
+    ctrl.newItem = {'Name' : 'Suede Shoes', 'colour' : 'Blue', 'Category' : "Women’s Footwear", 'price' : '42.00', 'quantity' : '4'};
+    ctrl.newItem1 = {'Name' : 'Almond Toe Court Shoes', 'colour' : 'Patent Black', 'Category' : "Women’s Footwear", 'price' : '99.00', 'quantity' : '5'};
   }));
 
   it('intialises with an empty basket', function() {
@@ -23,7 +24,7 @@ describe('ShoppingCartController', function() {
 
   it('can add an item to the basket', function() {
     ctrl.addItemToBasket(ctrl.newItem);
-    expect(ctrl.shoppingBasket).toEqual([{'Name' : 'Suede Shoes, Blue', 'Category' : "Women’s Footwear", 'price' : '42.00', 'quantity' : '4'}]);
+    expect(ctrl.shoppingBasket).toEqual([{'Name' : 'Suede Shoes', 'colour' : 'Blue', 'Category' : "Women’s Footwear", 'price' : '42.00', 'quantity' : '4'}]);
   });
 
   it('can remove an item from the basket', function() {
@@ -65,5 +66,18 @@ describe('ShoppingCartController', function() {
     ctrl.applyFivePoundDiscount();
     expect(ctrl.basketTotal).toEqual(37.00);
   });
+
+  it('can a apply a discount of £10 once an item has been added to the basket', function() {
+    ctrl.addItemToBasket(ctrl.newItem);
+    expect(ctrl.tenPoundDiscount).toEqual(true);
+  });
+
+  it('reduces the total once the £10 discount has been applied', function() {
+    ctrl.addItemToBasket(ctrl.newItem1);
+    ctrl.applyTenPoundDiscount();
+    expect(ctrl.basketTotal).toEqual(89.00);
+  });
+
+
 
 });
