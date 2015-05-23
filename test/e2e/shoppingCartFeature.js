@@ -66,4 +66,12 @@ describe('Shopping Cart', function() {
     });
   });
 
+  describe('Searching for goods', function() {
+    it('filters the product list as a user types in the search box', function() {
+      expect(element.all(by.repeater('item in ctrl.products.items')).count()).toBe(13);
+      element(by.model('query')).sendKeys('Flip');
+      expect(element.all(by.repeater('item in ctrl.products.items')).count()).toBe(2);
+    });
+  });
+
 });

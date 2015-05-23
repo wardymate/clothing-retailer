@@ -19,6 +19,9 @@
           <li class="pull-right">
             <a><span id="basket-header-total" class="badge">Basket Total : {{ctrl.basketTotal| currency:"£"}}</span></a>
           </li>
+          <li class="pull-right">
+            Search: <input ng-model="query">
+          </li>
         </ul>
       </section>
       <div class="row">
@@ -27,7 +30,7 @@
         </section>
         <section class="col-sm-8">
           <ul>
-            <li ng-repeat="item in ctrl.products.items" class="list-group-item">
+            <li ng-repeat="item in ctrl.products.items |  filter:query" class="list-group-item">
               <a class="shop-item" ng-click="ctrl.addItemToBasket(item)">{{item.Name}} : {{item.colour}}</a>
             </li>
           </ul>
