@@ -1,5 +1,7 @@
 # clothing-retailer
 
+![Screen shot](public/images/Screen-shot.png)
+
 A responsive shopping site for a clothing retailer. The retailer sells six different categories of clothes: women’s footwear, men’s footwear, women’s casualwear, men’s casualwear, women’s formalwear and man’s formalwear.
 
 The prioritised list of user stories is as follows:
