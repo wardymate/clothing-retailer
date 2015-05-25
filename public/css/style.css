@@ -1,7 +1,8 @@
 h3 {
   text-align: center;
 }
-#five-pound-voucher {
+#five-pound-voucher, #ten-pound-voucher, #fifteen-pound-voucher {
+  margin: 5px;
   width: 100%;
   text-align: center;
 }
@@ -21,6 +22,15 @@ h3 {
   list-style-type: none;
 }
 
+#shopping-basket-container {
+  border: solid;
+  border-color: #5bc0de;
+}
+
+#basket-total {
+  padding-top: 50px;
+}
+
 .basket-item, .remove-basket-item, .basket-price {
   display: inline-block;
   padding: 2px;
@@ -30,5 +40,12 @@ h3 {
   list-style-type: none;
 }
 
-.shop-item {
+.vouchers {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.totals {
+  list-style-type: none;
+  padding-right: 0px;
 }

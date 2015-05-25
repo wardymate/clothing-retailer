@@ -102,7 +102,10 @@ shopper.controller('ShoppingCartController', [function() {
       self.basketTotal -= 15.00;
       self.fifteenPoundDiscount = false;
     }
+  };
 
+  self.clearErrorMessage = function() {
+    self.errorMessage = false;
   };
 
 }]);

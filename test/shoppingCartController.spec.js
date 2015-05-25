@@ -136,5 +136,10 @@ describe('ShoppingCartController', function() {
     expect(ctrl.errorMessage).toEqual('Sorry that item is currently out of stock.');
   });
 
+  it('clears the error message when requested', function() {
+    ctrl.addItemToBasket(ctrl.newItem3);
+    ctrl.clearErrorMessage();
+    expect(ctrl.errorMessage).toEqual(false);
+  });
 
 });

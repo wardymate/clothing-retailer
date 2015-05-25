@@ -40,7 +40,7 @@ describe('Shopping Cart', function() {
     });
 
     it('can apply a £10 off voucher when the basket subtotal is more than £50', function() {
-      element(by.cssContainingText('.shop-item', 'Almond Toe Court Shoes : Patent Black')).click();
+      element(by.cssContainingText('.shop-item', 'Almond Toe Court Shoes : Black')).click();
       element(by.id('ten-pound-voucher')).click();
       expect(element(by.id('basket-total')).getText()).toContain('£89.00');
     });
@@ -71,6 +71,14 @@ describe('Shopping Cart', function() {
       expect(element.all(by.repeater('item in ctrl.products.items')).count()).toBe(13);
       element(by.model('query')).sendKeys('Flip');
       expect(element.all(by.repeater('item in ctrl.products.items')).count()).toBe(2);
+    });
+  });
+
+  describe('Removing error messages', function() {
+    it('can be removed by clicking on the close button', function() {
+      element(by.cssContainingText('.shop-item', 'Flip Flops : Blue')).click();
+      element(by.css('.close')).click();
+      expect(element(by.id('error-message')).isDisplayed()).toBe(false);
     });
   });
 
