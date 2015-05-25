@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '..',
+    basePath: '../..',
 
 
     // frameworks to use
@@ -20,7 +20,7 @@ module.exports = function(config) {
       'public/bower_components/angular-resource/angular-resource.js',
       'public/bower_components/angular-mocks/angular-mocks.js',
       'public/js/*.js',
-      'test/*.spec.js'
+      'test/unit/*.spec.js'
     ],
 
 
@@ -65,6 +65,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   });
 };
