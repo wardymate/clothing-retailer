@@ -52,6 +52,10 @@ h3 {
   background-color: #337ab7;
 }
 
+.input-box {
+  color: black;
+}
+
 .item-panel {
   list-style-type: none;
 }
