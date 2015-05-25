@@ -1,10 +1,14 @@
 h3 {
   text-align: center;
 }
-#five-pound-voucher, #ten-pound-voucher, #fifteen-pound-voucher {
-  margin: 5px;
-  width: 100%;
-  text-align: center;
+
+#basket-total {
+  clear: both;
+  float: right;
+}
+
+#brand, #search-box {
+  color: #FFFFFF;
 }
 
 #error-message {
@@ -13,8 +17,14 @@ h3 {
   color: red;
 }
 
-#sub-total {
-  padding-top: 10px;
+#five-pound-voucher, #ten-pound-voucher, #fifteen-pound-voucher {
+  margin: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+#shop {
+  padding-left: 0px;
 }
 
 #shopping-basket {
@@ -24,11 +34,12 @@ h3 {
 
 #shopping-basket-container {
   border: solid;
-  border-color: #5bc0de;
+  border-color: #337ab7;
+  padding-bottom: 40px;
 }
 
-#basket-total {
-  padding-top: 50px;
+#sub-total {
+  float: right;
 }
 
 .basket-item, .remove-basket-item, .basket-price {
@@ -36,16 +47,25 @@ h3 {
   padding: 2px;
 }
 
+.header {
+  background-color: #337ab7;
+}
+
 .item-panel {
   list-style-type: none;
 }
 
-.vouchers {
-  list-style-type: none;
-  padding-left: 0px;
+.navbar-default {
+  background-color: #337ab7;
+  border-color: #E7E7E7;
 }
 
 .totals {
   list-style-type: none;
   padding-right: 0px;
+}
+
+.vouchers {
+  list-style-type: none;
+  padding-left: 0px;
 }

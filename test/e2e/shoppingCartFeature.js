@@ -4,7 +4,7 @@ describe('Shopping Cart', function() {
   });
 
   it('has a title', function() {
-    expect(browser.getTitle()).toEqual('A Clothing Retailer');
+    expect(browser.getTitle()).toEqual('Clothing Retailer');
   });
 
   it('has a hidden shopping basket', function() {
