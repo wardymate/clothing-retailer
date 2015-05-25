@@ -55,7 +55,7 @@ $ npm test
 * [express](http://expressjs.com)
 * [AngularJS](http://angularjs.org)
 * [Karma](http://karma-runner.github.io/0.12/index.html)
-* [Karma](http://angular.github.io/protractor/#/)
+* [Protractor](http://angular.github.io/protractor/#/)
 
 ### Approach and what I learnt
 
@@ -66,6 +66,7 @@ I increased my overall understanding of Angular and protractor testing along wit
 ### Improvements
 
 - [] Create an API to serve the products data
+- [] Refactor tests
 - [] Add a logo to the header bar - and improve name
 - [] Allow functionality so that more items than are available can not be added to basket
 - [] Record multiple items and create line totals
