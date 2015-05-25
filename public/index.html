@@ -49,8 +49,9 @@
         </section>
         <section id="shopping-basket-container" ng-show="ctrl.shoppingBasketVisible" class="ng-hide col-md-4">
           <div>
-            <h3>Shopping Basket</h3>
+            <h3 >Shopping Basket</h3>
             <ul id="shopping-basket">
+              <li class="divider"></li>
               <li ng-repeat="(index, basketItem) in ctrl.shoppingBasket track by $index">
                 <p class="basket-item" id="basket-item-{{index}}">{{basketItem.Name}} : {{basketItem.colour}}</p><p class="pull-right basket-price">{{basketItem.price | currency:"£"}}</p><a ng-click="ctrl.removeItemFromBasket(basketItem )"class="remove-basket-item pull-right">remove</a>
               </li>
@@ -58,15 +59,15 @@
             <div>
               <ul class="col-lg-6 vouchers">
                 <li>
-                  <a class="btn btn-success" id="five-pound-voucher" ng-click="ctrl.applyFivePoundDiscount()">£5 off voucher
+                  <a class="btn" id="five-pound-voucher" ng-class="ctrl.fivePoundDiscount ? 'btn-success' : 'btn-danger'" ng-click="ctrl.applyFivePoundDiscount()">£5 off voucher
                   </a>
                 </li>
                 <li>
-                  <a class="btn btn-info" id="ten-pound-voucher" ng-click="ctrl.applyTenPoundDiscount()">£10 off voucher
+                  <a class="btn" id="ten-pound-voucher" ng-class="ctrl.tenPoundDiscount ? 'btn-success' : 'btn-danger'" ng-click="ctrl.applyTenPoundDiscount()">£10 off voucher
                   </a>
                 </li>
                 <li>
-                  <a class="btn btn-info" id="fifteen-pound-voucher" ng-click="ctrl.applyFifteenPoundDiscount()">£15 off voucher
+                  <a class="btn" id="fifteen-pound-voucher" ng-class="ctrl.fifteenPoundDiscount ? 'btn-success' : 'btn-danger'" ng-click="ctrl.applyFifteenPoundDiscount()">£15 off voucher
                   </a>
                 </li>
               </ul>
