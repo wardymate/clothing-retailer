@@ -8,7 +8,7 @@ The prioritised list of user stories is as follows:
 - [x] As a User I can view the products and their category, price and availability information.
 - [x] As a User I can add a product to my shopping cart.
 - [x] As a User I can remove a product from my shopping cart.
-- [x]As a User I can view the total price for the products in my shopping
+- [x] As a User I can view the total price for the products in my shopping
 cart.
 - [x] As a User I can apply a voucher to my shopping cart.
 - [x] As a User I can view the total price for the products in my shopping cart
