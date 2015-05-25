@@ -16,11 +16,14 @@
     <section class="container">
       <section class="col-md-12">
         <ul class ="nav nav-tabs">
+          <li>
+            <a>A Clothing Retailer</a>
+          </li>
           <li class="pull-right">
             <a><span id="basket-header-total" class="badge">Basket Total : {{ctrl.basketTotal| currency:"£"}}</span></a>
           </li>
           <li class="pull-right">
-            Search: <input ng-model="query">
+            <a>Search: <input ng-model="query"></a>
           </li>
         </ul>
       </section>
@@ -30,8 +33,14 @@
         </section>
         <section class="col-sm-8">
           <ul>
-            <li ng-repeat="item in ctrl.products.items |  filter:query" class="list-group-item">
-              <a class="shop-item" ng-click="ctrl.addItemToBasket(item)">{{item.Name}} : {{item.colour}}</a>
+            <li ng-repeat="item in ctrl.products.items | filter:query" class="col-sm-6 col-lg-6 col-md-6 item-panel">
+              <a class="thumbnail" ng-click="ctrl.addItemToBasket(item)">
+                <img class="shop-item" ng-src="{{item.imageUrl}}">
+                <div class="caption">
+                  <strong>{{item.Name}} : {{item.colour}}<span class="pull-right">{{item.price | currency:"£"}}</span></strong>
+                  <p>{{item.Category}}<span class="pull-right">{{item.quantity}} available</span></p>
+                </div>
+              </a>
             </li>
           </ul>
         </section>
