@@ -33,7 +33,7 @@ $ npm start
 $ visit [http://localhost:3000](visit http://localhost:3000)
 ```
 
-### To run Tests
+### To Run Tests
 
 feature tests
 
@@ -46,9 +46,7 @@ unit tests
 $ npm test
 ```
 
-### File structure
-
-### Technologies used
+### Technologies Used
 
 * [node.js](http://nodejs.org)
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
@@ -57,7 +55,7 @@ $ npm test
 * [Karma](http://karma-runner.github.io/0.12/index.html)
 * [Protractor](http://angular.github.io/protractor/#/)
 
-### Approach and what I learnt
+### My Approach and What I Learnt
 
 My approach was to write feature tests with protractor to help me build the elements that the app would require on the page and the functionality that the controller would have. I then wrote unit tests on my controler using Karma. I approached the functionality in the order of the user stories above. When all the users stories had been satisfied and both feature and unit test pass I added styling with CSS and Bootstrap adopting a mobile first approach so that the page display nicely for mobile, tablet and desktop.
 
@@ -65,12 +63,12 @@ I increased my overall understanding of Angular and protractor testing along wit
 
 ### Improvements
 
-- [] Create an API to serve the products data
-- [] Refactor tests
-- [] Add a logo to the header bar - and improve name
-- [] Allow functionality so that more items than are available can not be added to basket
-- [] Record multiple items and create line totals
-- [] Create custom directives to separate HTML
-- [] Add animations for adding items to the basket
-- [] Perhaps change the error message to a modal
-- [] Explore other technologies to achieve a similar product
+- Create an API to serve the products data
+- Refactor tests
+- Add a logo to the header bar - and improve name
+- Allow functionality so that more items than are available can not be added to basket
+- Record multiple items and create line totals
+- Create custom directives to separate HTML
+- Add animations for adding items to the basket
+- Perhaps change the error message to a modal
+- Explore other technologies to achieve a similar product
