@@ -30,8 +30,8 @@ $ git clone https://github.com/wardymate/clothing-retailer.git
 $ cd clothing-retailer
 $ npm install
 $ npm start
-$ visit [http://localhost:3000](visit http://localhost:3000)
 ```
+visit [http://localhost:3000](http://localhost:3000)
 
 ### To Run Tests
 
